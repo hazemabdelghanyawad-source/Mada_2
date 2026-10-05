@@ -61,8 +61,9 @@ if not MONGODB_URI:
 try:
     mongo_client = MongoClient(
         MONGODB_URI,
-        serverSelectionTimeoutMS=8000,
-        connectTimeoutMS=8000,
+        serverSelectionTimeoutMS=5000,
+        connectTimeoutMS=5000,
+        socketTimeoutMS=5000,
     )
     mongo_client.admin.command("ping")
 except Exception as exc:
