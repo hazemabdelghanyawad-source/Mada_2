@@ -1,0 +1,30 @@
+منصة مدى التعليمية الذكية
+
+تشغيل النسخة المتصلة بـ MongoDB Atlas:
+
+1. ثبّت المتطلبات:
+   py -m pip install -r requirements.txt
+
+2. أنشئ ملفًا باسم .env بجانب mada_educational_platform_v2.py:
+   MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@cluster0.xxxxx.mongodb.net/mada?appName=Cluster0
+   MONGODB_DB=mada
+
+3. شغّل:
+   py mada_educational_platform_v2.py
+
+4. افتح:
+   http://127.0.0.1:8000/
+
+نظام المعلمين:
+- إنشاء حساب معلم
+- تسجيل دخول وخروج
+- كلمات المرور تُخزّن كـ PBKDF2 hashes
+- الجلسات محفوظة في MongoDB
+- كل معلم يرى طلابه فقط عبر teacher_id
+- رفع CSV يحفظ بيانات الطلاب في MongoDB
+- التقارير والـDashboard الحالية تعمل على بيانات المعلم المسجل
+
+الأمان:
+- لا تضع MONGODB_URI داخل الكود.
+- لا ترفع .env إلى GitHub؛ .gitignore يتضمنه.
+- في الإنتاج استخدم Environment Variables على منصة الاستضافة.
