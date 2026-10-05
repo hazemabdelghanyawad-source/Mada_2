@@ -1,9 +1,9 @@
 fastapi
 uvicorn
-pandas
+pymongo
+python-dotenv
 python-multipart
+pandas
 reportlab
 arabic-reshaper
 python-bidi
-pymongo
-python-dotenv
