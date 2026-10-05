@@ -1,0 +1,1 @@
+from mada_educational_platform_v2 import app
