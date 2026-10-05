@@ -58,19 +58,12 @@ if not MONGODB_URI:
         "MONGODB_URI is missing. Create a .env file next to this file and set MONGODB_URI=..."
     )
 
-try:
-    mongo_client = MongoClient(
-        MONGODB_URI,
-        serverSelectionTimeoutMS=5000,
-        connectTimeoutMS=5000,
-        socketTimeoutMS=5000,
-    )
-    mongo_client.admin.command("ping")
-except Exception as exc:
-    raise RuntimeError(
-        "Could not connect to MongoDB Atlas. Check MONGODB_URI, Database User password, "
-        "and Atlas Network Access. Details: " + str(exc)
-    ) from exc
+mongo_client = MongoClient(
+    MONGODB_URI,
+    serverSelectionTimeoutMS=5000,
+    connectTimeoutMS=5000,
+    socketTimeoutMS=5000,
+)
 
 mongo_db = mongo_client[os.getenv("MONGODB_DB", "mada")]
 teachers_collection = mongo_db["teachers"]
