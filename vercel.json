@@ -1,15 +1,9 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "mada_educational_platform_v2.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "mada_educational_platform_v2.py"
+      "source": "/(.*)",
+      "destination": "/mada_educational_platform_v2.py"
     }
   ]
 }
